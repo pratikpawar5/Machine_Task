@@ -19,4 +19,4 @@
 
 #4. type command "ng serve -o"
 
-#5. Automatically open your default browser and run your code http://localhost:4200
+#5. Automatically open your default browser and run the code on  http://localhost:4200

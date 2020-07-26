@@ -1,0 +1,24 @@
+img{
+    width:100px;
+    border-radius: 50%;
+}
+.card
+{
+    width: 70%;
+    margin:0 auto;
+    padding: 10px;
+}
+.f-20
+{
+    font-size: 20px;
+}
+.details-button
+{
+    position: absolute;
+    right:    0;
+    bottom:   0;
+}
+h6
+{
+    font-weight: bold;
+}

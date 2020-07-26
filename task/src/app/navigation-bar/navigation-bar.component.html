@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="#">MACHINE_TASK</a>
+
+    <!-- Links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link 1</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link 2</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link 3</a>
+        </li>
+    </ul>
+
+    <mat-card class="card">
+        <ul class="menu">
+            <li>
+                <mat-form-field appearance="outline">
+                    <mat-label>Sorting</mat-label>
+                    <mat-select [(ngModel)]="sorting" (ngModelChange)="sortingData()">
+                        <mat-option *ngFor="let sorting of sortingList" [value]="sorting.value">{{sorting.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </li>
+
+            <li>
+                <mat-form-field appearance="outline" id="search">
+                    <input matInput placeholder="Search" [formControl]="searchText" autocomplete="off"
+                        spellcheck="true">
+                </mat-form-field>
+            </li>
+
+            <li>
+                <button mat-stroked-button color="primary" (click)="onClickSearch()">Search</button>
+            </li>
+
+        </ul>
+
+    </mat-card>
+
+</nav>
+
+<ng-container *ngIf="resultArray">
+    <app-search-result [resultArray]="resultArray" [totalCount]="totalCount"></app-search-result>
+</ng-container>

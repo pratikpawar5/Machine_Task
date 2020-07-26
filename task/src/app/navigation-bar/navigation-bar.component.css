@@ -1,0 +1,15 @@
+.card
+{
+ padding: 0;
+}
+
+mat-form-field #search
+{
+  width: 50%;
+}
+
+.menu li{
+    list-style-type: none;
+    padding: 5px 10px 0 0;
+    display: inline-block;
+}

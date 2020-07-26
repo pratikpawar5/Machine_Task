@@ -1,0 +1,38 @@
+<div class="container mt-3">
+    <h6>Total Results:{{totalCount}}</h6>
+    <div class="card mt-2"
+        *ngFor="let res of resultArray| paginate: { itemsPerPage: count, currentPage: p }; let i=index">
+        <div class="row">
+            <div class="col-md-2">
+                <img [src]="res.avatar_url" alt="Avatar">
+            </div>
+            <div class="col-md-10">
+                <p class="f-20"> {{res.login}}</p>
+                <p class="f-16">Profile Url :
+                    <a href="{{res.repos_url}}" target="_blank">
+                        {{res.repos_url}}
+                    </a>
+                </p>
+            </div>
+            <div>
+                <button class="details-button btn btn-primary" data-toggle="collapse"
+                    [attr.data-target]="'#collapse'+ i" (click)="onClickDetails(res.login)">Details</button>
+            </div>
+            <div [id]="'collapse'+i" class="collapse">
+                <div class="container" *ngFor="let userDetail of userDetails">
+                    <p *ngIf="userDetail.language">Language : {{userDetail.language}}</p>
+                    <p>Repository Url: <a href="{{userDetail.owner.repos_url}}" target="_blank">
+                            {{userDetail.owner.repos_url}}
+                        </a>
+                    </p>
+                    <p>Open Issues Count : {{userDetail.open_issues_count}}</p>
+                    <p>Watchers Count: {{userDetail.watchers}}</p>
+                    <p>Forks Count : {{userDetail.forks_count}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-right">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+</div>
